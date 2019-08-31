@@ -14,14 +14,38 @@
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/runtime": "^7.5.5",
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
     "@react-native-community/eslint-config": "^0.0.5",
     "babel-jest": "^24.9.0",
     "eslint": "^6.3.0",
+    "husky": "^3.0.4",
     "jest": "^24.9.0",
+    "lint-staged": "^9.2.5",
     "metro-react-native-babel-preset": "^0.56.0",
     "react-test-renderer": "16.8.6"
   },
   "jest": {
     "preset": "react-native"
+  },
+  "resolutions": {
+    "@react-native-community/eslint-config/@typescript-eslint/eslint-plugin/eslint": "^5.0.0",
+    "@react-native-community/eslint-config/@typescript-eslint/eslint-plugin/tsutils/typescript": "^3.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "engines": {
+    "node": "^10.10.0",
+    "npm": "^6.4.0",
+    "yarn": "^1.10.0"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "git add"
+    ]
   }
 }
